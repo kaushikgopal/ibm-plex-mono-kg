@@ -1,6 +1,8 @@
 #!/bin/zsh
 
-fontSuffix="KG 2"
+fontSuffix="KG"
+fontVersion="2"
+
 mkdir -p "IBM-Plex-Mono-$fontSuffix"
 cd IBM-Plex-Mono
 
@@ -24,14 +26,14 @@ cd IBM-Plex-Mono
 #  ss01 - plain a
 #  ss02 - plain g
 for f in $(fd -HI ibmplexmono -e otf -E '*Italic.otf'); do
-  pyftfeatfreeze -f "ss03" -R "Mono/Mono $fontSuffix" -v $f "${f%.otf}.kg.otf"
+  pyftfeatfreeze -f "ss03" -R "Mono/Mono $fontSuffix $fontVersion" -v $f "${f%.otf}.kg.otf"
 done
 
 # In the italicized versions of IBM Plex Mono
 #  ss01 - use stylistic variant of a (with the hat)
 #  ss02 - use g with a cap
 for f in $(fd -HI Italic.otf -e otf); do
-  pyftfeatfreeze -f "ss03,ss01,ss02" -R "Mono/Mono $fontSuffix" -v $f "${f%.otf}.kg.otf"
+  pyftfeatfreeze -f "ss03,ss01,ss02" -R "Mono/Mono $fontSuffix $fontVersion" -v $f "${f%.otf}.kg.otf"
 done
 
 mv *.kg.otf ../"IBM-Plex-Mono-$fontSuffix"/
