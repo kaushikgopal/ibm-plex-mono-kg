@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-fontSuffix="KG-2"
+fontSuffix="KG 2"
 mkdir -p "IBM-Plex-Mono-$fontSuffix"
 cd IBM-Plex-Mono
 
